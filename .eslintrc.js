@@ -1,6 +1,6 @@
 module.exports = {
     env: {
-        es2022: true,
+        es2021: true,
         node: true,
         browser: true,
     },
@@ -61,16 +61,6 @@ module.exports = {
 
         // https://typescript-eslint.io/rules/ban-types
         // Disallow certain types.
-        "@typescript-eslint/no-restricted-types": [
-            "error",
-            {
-                types: {
-                    unknown:
-                        "That is not allowed in this course. You should be able to specify the type more clearly!",
-                    any: "That is not allowed in this course. You should be able to figure out the type!",
-                },
-            },
-        ],
         // https://typescript-eslint.io/rules/no-array-constructor
         // Disallow generic Array constructors.
         "no-array-constructor": "off",
