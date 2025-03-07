@@ -109,7 +109,7 @@ export function makeAnswers(questions: Question[]): Answer[] {
             questionId: question.id,
             text: "",
             submitted: false,
-            correct: false,
+            correct: false
         };
     });
 }
@@ -122,7 +122,7 @@ export function publishAll(questions: Question[]): Question[] {
     return questions.map((questions: Question) => {
         return {
             ...questions,
-            published: true,
+            published: true
         };
     });
 }
@@ -212,7 +212,7 @@ export function editOption(
         updatedOptions[targetOptionIndex] = newOption;
         return {
             ...question,
-            options: updatedOptions,
+            options: updatedOptions
         };
     });
 }
@@ -234,6 +234,6 @@ export function duplicateQuestionInArray(
     return [
         ...questions.slice(0, questionIndex + 1),
         duplicateQuestion(newId, questions[questionIndex]),
-        ...questions.slice(questionIndex + 1, questions.length),
+        ...questions.slice(questionIndex + 1, questions.length)
     ];
 }
