@@ -18,7 +18,7 @@ export function makeBlankQuestion(
         options: [],
         expected: "",
         points: 1,
-        published: false,
+        published: false
     };
     return blankQuestion;
 }
@@ -45,9 +45,9 @@ export function isCorrect(question: Question, answer: string): boolean {
 export function isValid(question: Question, answer: string): boolean {
     const questionType: QuestionType = question.type;
 
-    return questionType === "short_answer_question" ? true : (
-            question.options.includes(answer)
-        );
+    return questionType === "short_answer_question"
+        ? true
+        : question.options.includes(answer);
 }
 
 /**
@@ -80,13 +80,13 @@ export function toShortForm(question: Question): string {
 export function toMarkdown(question: Question): string {
     const baseMarkdown: string = `# ${question.name}\n${question.body}`;
 
-    return question.type === "short_answer_question" ?
-            baseMarkdown
-        :   `${baseMarkdown}\n- ${question.options.reduce(
-                (accumulator: string, currentValue: string) => {
-                    return `${accumulator}\n- ${currentValue}`;
-                },
-            )}`;
+    return question.type === "short_answer_question"
+        ? baseMarkdown
+        : `${baseMarkdown}\n- ${question.options.reduce(
+              (accumulator: string, currentValue: string) => {
+                  return `${accumulator}\n- ${currentValue}`;
+              }
+          )}`;
 }
 
 /**
@@ -97,7 +97,7 @@ export function renameQuestion(question: Question, newName: string): Question {
     const newQuestion: Question = {
         ...question,
         options: [...question.options],
-        name: newName,
+        name: newName
     };
     return newQuestion;
 }
@@ -111,7 +111,7 @@ export function publishQuestion(question: Question): Question {
     const newQuestion: Question = {
         ...question,
         options: [...question.options],
-        published: !question.published,
+        published: !question.published
     };
     return newQuestion;
 }
@@ -128,7 +128,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
         options: [...oldQuestion.options],
         id: id,
         published: false,
-        name: `Copy of ${oldQuestion.name}`,
+        name: `Copy of ${oldQuestion.name}`
     };
     return newQuestion;
 }
@@ -143,7 +143,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
 export function addOption(question: Question, newOption: string): Question {
     const newQuestion: Question = {
         ...question,
-        options: [...question.options, newOption],
+        options: [...question.options, newOption]
     };
     return newQuestion;
 }
@@ -168,7 +168,7 @@ export function mergeQuestion(
         id: id,
         name: name,
         published: false,
-        points: points,
+        points: points
     };
     return newQuestion;
 }
